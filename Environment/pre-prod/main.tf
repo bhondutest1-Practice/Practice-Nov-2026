@@ -14,3 +14,9 @@ module "SUBNET" {
   SUBNET     = var.SUBNET
   depends_on = [module.VNET]
 }
+
+module "NIC" {
+  source = "../../modules/azurerm_nic"
+  NIC = var.NIC
+  depends_on = [ module.SUBNET ]
+}
